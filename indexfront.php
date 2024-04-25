@@ -58,10 +58,10 @@ $querybest2 = mysqli_query ($conn, "SELECT keluar.idkeluar, keluar.qty, stock.na
                <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-nav-first">
                          <li class="active"><a href="index.php">Home</a></li>
-                         <li><a href="index.php">Tetang Oppo</a></li>
-                         <li><a href=".php">Produk</a></li>
-                         <li><a href="produk.php">Produk Best Seller</a></li>
-                         <li><a href="produk.php">Rating</a></li>
+                         <li><a href="indexfront.php">Tetang Oppo</a></li>
+                         <li><a href="indexfront.php">Produk</a></li>
+                         <li><a href="indexfront.php">Produk Best Seller</a></li>
+                         <li><a href="indexfront.php">Rating</a></li>
                          <li><a href="kontak.php">Kontak</a></li>
                     </ul>
                </div>
@@ -306,12 +306,6 @@ $querybest2 = mysqli_query ($conn, "SELECT keluar.idkeluar, keluar.qty, stock.na
                          </form>
                     </div>
 
-                    <!-- <div class="col-md-6 col-sm-12">
-                         <div class="contact-image">
-                              <img src="images/contact-1-600x400.jpg" class="img-responsive" alt="Smiling Two Girls">
-                         </div>
-                    </div> -->
-
                </div>
           </div>
      </section>       
@@ -351,36 +345,6 @@ $querybest2 = mysqli_query ($conn, "SELECT keluar.idkeluar, keluar.qty, stock.na
                                    <p>081281022589</p>
                                    <p><a href="mailto:cello's@gmail.com">oppo@gmail.com</a></p>
                               </address>
-
-                              <!-- <div class="footer_menu">
-                                   <h2>Quick Links</h2>
-                                   <ul>
-                                        <li><a href="index.html">Home</a></li>
-                                        <li><a href="about-us.html">About Us</a></li>
-                                        <li><a href="terms.html">Terms & Conditions</a></li>
-                                        <li><a href="contact.html">Contact Us</a></li>
-                                   </ul>
-                              </div>
-                         </div>
-                    </div> -->
-
-                    <!-- <div class="col-md-4 col-sm-12">
-                         <div class="footer-info newsletter-form">
-                              <div class="section-title">
-                                   <h2>Newsletter Signup</h2>
-                              </div>
-                              <div>
-                                   <div class="form-group">
-                                        <form action="#" method="get">
-                                             <input type="email" class="form-control" placeholder="Enter your email" name="email" id="email" required>
-                                             <input type="submit" class="form-control" name="submit" id="form-submit" value="Send me">
-                                        </form>
-                                        <span><sup>*</sup> Please note - we do not spam your email.</span>
-                                   </div>
-                              </div>
-                         </div>
-                    </div>
-                     -->
                </div>
           </div>
      </footer>

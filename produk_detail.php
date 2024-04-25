@@ -60,11 +60,11 @@ $produk = mysqli_fetch_array($querydetail);
                <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-nav-first">
                          <li class="active"><a href="index.php">Home</a></li>
-                         <li><a href="index.php">Tetang Oppo</a></li>
-                         <li><a href="produk.php">Produk</a></li>
-                         <li><a href="produk.php">Produk Best Seller</a></li>
-						 <li><a href="produk.php">Rating</a></li>
-                         <li><a href="index.php">Kontak</a></li>
+                         <li><a href="indexfront.php">Tetang Oppo</a></li>
+                         <li><a href="indexfront.php">Produk</a></li>
+                         <li><a href="indexfront.php">Produk Best Seller</a></li>
+                         <li><a href="indexfront.php">Rating</a></li>
+                         <li><a href="kontak.php">Kontak</a></li>
                     </ul>
                </div>
 
