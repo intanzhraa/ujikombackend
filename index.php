@@ -97,6 +97,7 @@ require 'cek.php';
                                                 <th>No</th>
                                                 <th>Gambar</th>
                                                 <th>Nama Barang</th>
+                                                <th>Harga</th>
                                                 <th>Deskripsi</th>
                                                 <th>Stock</th>
                                                 <th>Aksi</th>
@@ -108,6 +109,7 @@ require 'cek.php';
                                             $i = 1;
                                             while($data=mysqli_fetch_array($ambilsemuadatastock)){
                                                 $namabarang = $data['namabarang'];
+                                                $harga = $data['harga'];
                                                 $deskripsi = $data['deskripsi'];
                                                 $stock = $data['stock'];
                                                 $idb = $data['idbarang'];
@@ -128,6 +130,7 @@ require 'cek.php';
                                                 <td><?=$i++;?></td>
                                                 <td><?=$img;?></td>
                                                 <td><?=$namabarang;?></td>
+                                                <td><?=$harga;?></td>
                                                 <td><?=$deskripsi;?></td>
                                                 <td><?=$stock;?></td>
                                                 <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#edit<?=$idb;?>">
@@ -151,11 +154,15 @@ require 'cek.php';
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                                         </div>
                                         
-                                        <form method="post">
+                                        <form method="post" enctype="multipart/form-data">
                                         <div class="modal-body">
                                         <input type="text" name="namabarang" value="<?=$namabarang;?>" class="form-control" required>
                                         <br>
+                                        <input type="text" name="harga" value="<?=$harga;?>" class="form-control" required>
+                                        <br>
                                         <input type="text" name="deskripsi" value="<?=$deskripsi;?>" class="form-contorl" required> <br>
+                                        <br>
+                                        <input type="number" name="stock" class="form-control" placeholder="Stock" required>
                                         <br>
 										<input type="file" name="file" class="form-control">
 										<br>
@@ -229,6 +236,8 @@ require 'cek.php';
         <form method="post" enctype="multipart/form-data">
             <div class="modal-body">
           <input type="text" name="namabarang" placeholder="Nama Barang" class="form-control" required>
+          <br>
+          <input type="text" name="harga" class="form-control" placeholder="Harga" required>
           <br>
           <input type="text" name="deskripsi" placeholder="Deskripsi Barang" class="form-contorl" required> <br>
           <br>

@@ -7,6 +7,7 @@ $conn = mysqli_connect("localhost","root","","stockbarang");
 
 if(isset($_POST['addnewbarang'])){
     $namabarang = $_POST['namabarang'];
+    $harga = $_POST['harga'];
     $deskripsi = $_POST['deskripsi'];
     $stock = $_POST['stock'];
 
@@ -16,7 +17,7 @@ if(isset($_POST['addnewbarang'])){
     $dot = explode('.',$nama);
     $ekstensi = strtolower(end($dot)); // ngambil ekstensinya
     $ukuran = $_FILES['file']['size']; // ngambil size filenya
-    $file_tmp = $_FILES['file']['tmp_name']; // ngambil lokasi filenya
+    $file_tmp = $_FILES['file']['tmp_name']; // ngambil lokasi filenya 
 
     // penamaan file -> enkripsi
     $image = md5(uniqid($nama,true) . time()).'.'.$ekstensi; // menggabungkan nama file yang dienkripsi dengan ekstensinya
@@ -32,9 +33,9 @@ if(isset($_POST['addnewbarang'])){
         if(in_array($ekstensi, $allowed_extension) === true){
             // validasi ukuran filenya
             if($ukuran < 15000000){
-                move_uploaded_file($file_tmp, 'images/'.$image);
+                move_uploaded_file($file_tmp, 'images/'.$image);  //lokasi simpan file gambar
 
-                $addtotable = mysqli_query($conn,"insert into stock (namabarang, deskripsi, stock, image) values('$namabarang','$deskripsi','$stock','$image')");
+                $addtotable = mysqli_query($conn,"insert into stock (namabarang, harga, deskripsi, stock, image) values('$namabarang','$harga','$deskripsi','$stock','$image')");
                 if($addtotable){
                     header('location:index.php');
                 } else {
@@ -51,7 +52,7 @@ if(isset($_POST['addnewbarang'])){
                 ';
             }
         } else {
-            // kalo filenya tidak png / jpg
+            // kalo filenya tidak png, jpg, webp
             echo '
         <script>
         alert("File harus png, jpg atau webp");
@@ -70,7 +71,7 @@ if(isset($_POST['addnewbarang'])){
         ';
     }
 
-    $addtotable = mysqli_query($conn, "insert into stock (namabarang, deskripsi, stock) values('$namabarang', '$deskripsi', '$stock')");
+    $addtotable = mysqli_query($conn, "insert into stock (namabarang, harga, deskripsi, stock, ) values('$namabarang', '$harga',$deskripsi', '$stock', '$image')");
     if($addtotable){
         header('location:index.php');
     } else {
@@ -142,7 +143,9 @@ if(isset($_POST['addbarangkeluar'])){
 if(isset($_POST['updatebarang'])){
     $idb = $_POST['idb'];
     $namabarang = $_POST['namabarang'];
+    $harga = $_POST['harga'];
     $deskripsi = $_POST['deskripsi'];
+    $stock = $_POST['stock'];
 	
 	// soal gambar
     $allowed_extension = array('png', 'jpg', 'webp');
@@ -157,7 +160,7 @@ if(isset($_POST['updatebarang'])){
 
     if($ukuran==0){
         // jika tidak ingin upload
-        $update = mysqli_query($conn,"update stock set namabarang='$namabarang', deskripsi='$deskripsi' where idbarang = '$idb'");
+        $update = mysqli_query($conn,"update stock set namabarang='$namabarang', harga='$harga', deskripsi='$deskripsi', where idbarang = '$idb'");
         if($update) {
             header('location:index.php');
         } else {
@@ -167,7 +170,7 @@ if(isset($_POST['updatebarang'])){
     } else {
         // jika ingin
         move_uploaded_file($file_tmp, 'images/'.$image);
-        $update = mysqli_query($conn,"update stock set namabarang='$namabarang', deskripsi='$deskripsi' where idbarang = '$idb'");
+        $update = mysqli_query($conn,"update stock set namabarang='$namabarang', harga='$harga', deskripsi='$deskripsi', image='$image' where idbarang = '$idb'");
         if($update){
             header('location:index.php');
         } else {
